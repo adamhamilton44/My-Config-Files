@@ -1,0 +1,205 @@
+
+format = """
+[╭─────≽➠](bold  #FF0101) $username$hostname$fill$time$fill$shell$cmd_duration 
+[┣──≽➠](bold #FEFAFA) $directory$git_branch$git_commet$git_state$git_status$package$docker_context$docker_context$python 
+[╰─────≽➠](bold #0220FE) $status$character 
+"""
+
+[username]
+style_user = "italic purple bold"
+style_root = "#12D612 italic bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[on](#FFAF00 bold) [Kali](#84BD0D italic bold) '
+trim_at = "."
+disabled = false
+
+[fill]
+symbol = ' '
+style = 'bold green'
+
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = '[≖≖≖≫ ](bold #890CA7) [≖≖≖≫ ](bold #8ECF0E) [≖≖≖≫ ](bold #E6460C)  '
+error_symbol = '[✖ ✖ ✖](bold #FF0101) '
+
+
+# configure directory
+[directory]
+read_only = "☣ "
+truncation_length = 0
+truncate_to_repo = true # truncates directory to root folder if in github repo
+style = "bg:#121315 bold italic cyan underline"
+
+# ♛ 🎵  🎶   📸   🗂    📽     ⏬ 📜🎩
+[directory.substitutions]
+"Documents" = " 🗂 "
+"Downloads" = " ⏬"
+"Music" = " 🎶"
+"Pictures" = " 📸"
+"BlackHat" = " 🎩"
+"Bash" = " 📜"
+
+
+[time]
+time_format = "%r"
+format = "[$time](bold italic #11E3B6)"
+style = "bold"
+use_12hr = true
+disabled = false
+
+[cmd_duration]
+min_time = 8
+show_milliseconds = false
+disabled = false
+style = "bold italic #EB14C6"
+
+[aws]
+symbol = "ⓐ Ⓦ Ⓢ "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = ""
+
+
+[docker_context]
+symbol = "ΔΦςκΞπ"
+format = "via [$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = ""
+
+#🌱
+[git_branch]
+truncation_length = 4
+truncation_symbol = '…'
+ignore_branches = ['']
+symbol = '🌱 '
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = '🔖 '
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+
+
+[git_metrics]
+added_style = 'bold blue'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[git_status]
+conflicted = '⚠️ '
+ahead = '🏎💨↬ '
+behind = '↫ 😰'
+diverged = '😵'
+up_to_date = '🥇'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+renamed = '✍️ '
+deleted = '🗑'
+
+[golang]
+symbol = "Ⓖ Ⓞ "
+
+[guix_shell]
+disabled = true
+format = "via (yellow bold) "
+symbol = 'B '
+
+[status]
+style = 'bold red'
+symbol = '❌'
+success_symbol = '💯'
+not_executable_symbol = '⛔'
+not_found_symbol = '🔍'
+recognize_signal_code = true
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = false
+disabled = false
+
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = "ⓙ ⓐ ⓥ ⓐ "
+
+[julia]
+symbol = ""
+
+[memory_usage]
+symbol = " 💾 "
+
+[nim]
+symbol = " "
+
+[shell]
+bash_indicator = 'β '
+zsh_indicator = 'Ž '
+format = '[via](italic yellow) [$indicator]($style)'
+style = '#7C22DC bold'
+disabled = false
+
+[package]
+symbol = "📦"
+
+[perl]
+symbol = "⚪ "
+
+[php]
+symbol = "Ⓟ ⓗ ⓟ "
+
+[python]
+symbol = "₱¥"
+pyenv_version_name = true
+format = 'via [${symbol} (${version} )(\($virtualenv\) )]($style)'
+style = "bold yellow"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${raw}"
+
+[ruby]
+symbol = "Ⓡ ⓤ ⓑ ⓨ"
+
+[rust]
+symbol = "Ⓡ ⓤ ⓢ ⓣ"
+
+[scala]
+symbol = ""
+
+[shlvl]
+disabled = false
+format = '[$symbol$shlvl]($style)'
+repeat = true
+symbol = '❯_'
+repeat_offset = 1
+threshold = 0
+
+[swift]
+symbol = "ﯣ "
+
+[nodejs]
+format = "via [Ⓝ ⓞ ⓓ ⓔ  Ⓙ Ⓢ  $version](bold green) "
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+
